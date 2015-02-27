@@ -29,7 +29,7 @@ angular.module('angularWalletApp')
 
     return {
       getCurrency: function (currency) {
-        return currenciesSpecs[currency];
+        return currenciesSpecs[currency] || null;
       },
       getCurrenciesList: function(){
         return Object.keys(currenciesSpecs);

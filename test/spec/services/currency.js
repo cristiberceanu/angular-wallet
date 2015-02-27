@@ -21,6 +21,11 @@ describe('Service: Currency', function () {
     expect(eurCurrency.symbol).toBeDefined();
   });
 
+  it('should return null if currency doesn\'t exist', function (){
+    var inexistingCurrency = Currency.getCurrency('IDK');
+    expect(inexistingCurrency).toBeNull();
+  });
+
   it('should check if currency list is not empty', function () {
     expect(Currency.getCurrenciesList().length).not.toEqual(0);
   });

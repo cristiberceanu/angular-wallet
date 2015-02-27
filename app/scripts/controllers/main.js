@@ -8,6 +8,6 @@
  * Controller of the angularWalletApp
  */
 angular.module('angularWalletApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope, Currency) {
 
   });
