@@ -11,5 +11,17 @@
 angular
   .module('angularWalletApp', [
     'ngAnimate',
-    'ngTouch'
+    'ngTouch',
+    'ngRoute'
   ]);
+
+angular.module('angularWalletApp').config(['$routeProvider', '$locationProvider',  function($routeProvider, $locationProvider){
+  $routeProvider.when('/', {
+    templateUrl:'views/main.html',
+    controller: 'MainCtrl'
+  });
+
+  $routeProvider.otherwise('/404');
+  $locationProvider.html5Mode(false).hashPrefix("!");
+
+}]);

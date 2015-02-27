@@ -9,5 +9,5 @@
  */
 angular.module('angularWalletApp')
   .controller('MainCtrl', function ($scope, Currency) {
-
+      console.log("test");
   });
