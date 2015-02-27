@@ -1,12 +1,10 @@
 <div class="jumbotron">
-  <h1>Shut up and take my money!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+  <h4>Shut up and take my money!</h4>
+  <h4>Wallet app</h4>
+  <select name="currency" id="currency" ng-options="currency for currency in currencies" ng-model="currentCurrency" ng-change="createWallet()">
+  </select>
 </div>
 
 <div class="row marketing">
-  <h4>Wallet app</h4>
+
 </div>
