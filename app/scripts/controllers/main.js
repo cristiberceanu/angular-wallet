@@ -12,7 +12,6 @@ angular.module('angularWalletApp')
 
     $scope.createWallet = function () {
       $scope.wallet = Wallet.getWallet(Currency.getCurrency($scope.currentCurrency));
-      console.log($scope.wallet);
     };
 
     $scope.currencies = Currency.getCurrenciesList();
@@ -30,6 +29,14 @@ angular.module('angularWalletApp')
           $scope.total += castTotal * parseInt(banknote.name);
       });
 
+    };
+
+    $scope.addMoney = function(banknote){
+      $scope.total += banknote.name;
+    };
+
+    $scope.removeMoney = function(banknote){
+      $scope.total -= banknote.name;
     };
 
     $scope.createWallet();

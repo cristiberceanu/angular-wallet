@@ -12,7 +12,8 @@ angular
   .module('angularWalletApp', [
     'ngAnimate',
     'ngTouch',
-    'ngRoute'
+    'ngRoute',
+    'LocalStorageModule'
   ]);
 
 angular.module('angularWalletApp').config(['$routeProvider', '$locationProvider',  function($routeProvider, $locationProvider){

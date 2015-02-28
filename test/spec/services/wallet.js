@@ -26,7 +26,7 @@ describe('Service: Wallet', function () {
 
     // wallet should be empty
     angular.forEach(wallet, function(banknote){
-      expect(banknote.ammount).toEqual(0);
+      expect(banknote.amount).toEqual(0);
     });
 
   });
