@@ -8,7 +8,7 @@
  * Controller of the angularWalletApp
  */
 angular.module('angularWalletApp')
-  .controller('MainCtrl', function ($scope, Currency, Wallet, localStorageService) {
+  .controller('MainCtrl', function ($scope, Currency, Wallet, localStorageService, Utils) {
     $scope.currencies = Currency.getCurrenciesList();
 
     // get from localStorage or set it as empty array
@@ -31,6 +31,9 @@ angular.module('angularWalletApp')
 
     $scope.createWallet = function () {
       localStorageService.set('currentCurrency', $scope.currentCurrency);
+      localStorageService.set('transactions', []);
+      $scope.transactions = [];
+      console.log(localStorageService.get('transactions'));
       $scope.wallet = Wallet.getWallet(Currency.getCurrency($scope.currentCurrency.name));
       localStorageService.set('wallet', $scope.wallet);
     };
@@ -46,14 +49,24 @@ angular.module('angularWalletApp')
     }
 
     $scope.addMoney = function(banknote){
+
+      if(!Utils.isNumeric(banknote.name)){
+        banknote.name = 0;
+      }
       $scope.wallet.total += banknote.name;
-      // add at the beginning of the list
+      $scope.wallet.total = Math.round($scope.wallet.total * 1000) / 1000;
       $scope.transactions.unshift({type:'add', value: banknote.name, date: new Date()});
     };
 
     $scope.removeMoney = function(banknote){
+      if(!Utils.isNumeric(banknote.name)){
+        banknote.name = 0;
+      }
+
       $scope.wallet.total -= banknote.name;
-      // add at the beginning of the list
+
+      $scope.wallet.total = Math.round($scope.wallet.total * 1000) / 1000;
+
       $scope.transactions.unshift({type:'remove', value: banknote.name, date: new Date()})
     };
 

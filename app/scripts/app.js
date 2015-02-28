@@ -16,8 +16,8 @@ angular
     'LocalStorageModule'
   ]);
 
-angular.module('angularWalletApp').config(['$routeProvider', '$locationProvider', 'localStorageServiceProvider',
-  function($routeProvider, $locationProvider, localStorageServiceProvider){
+angular.module('angularWalletApp').config(['$routeProvider', '$locationProvider', 'localStorageServiceProvider', '$compileProvider',
+  function($routeProvider, $locationProvider, localStorageServiceProvider, $compileProvider){
     $routeProvider.when('/', {
       templateUrl:'views/main.html',
       controller: 'MainCtrl'
@@ -30,5 +30,8 @@ angular.module('angularWalletApp').config(['$routeProvider', '$locationProvider'
     localStorageServiceProvider
       .setPrefix('angularWalletApp')
       .setStorageType('localStorage');
+
+    // so we can have view-source: url :)
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(view-source):/);
 
   }]);

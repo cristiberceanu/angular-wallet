@@ -21,6 +21,7 @@
        ng-class="{'alert alert-success':transaction.type == 'add', 'alert alert-danger':transaction.type == 'remove'}"
 
     >
-    Ammount: <i class="fa {{currentCurrency.symbol}}"></i>{{transaction.value}}
+    Ammount: <i class="fa {{currentCurrency.symbol}}"></i>{{transaction.value}} <br/>
+    Date: {{transaction.date | date: 'medium'}}
   </div>
 </div>

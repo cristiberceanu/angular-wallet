@@ -53,6 +53,10 @@ describe('Controller: MainCtrl', function () {
     scope.createWallet();
     expect(scope.wallet.currency.symbol).not.toEqual(globals.mockWallet.currency.symbol);
 
+
+    //new wallet has to have empty transaction history
+    expect(scope.transactions.length).toEqual(0);
+
     //currency has to match wallet currency
     expect(scope.wallet.currency).toEqual(scope.currentCurrency);
 

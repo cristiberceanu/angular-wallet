@@ -8,7 +8,8 @@
  * Controller of the angularWalletApp
  */
 angular.module('angularWalletApp')
-  .controller('HeaderCtrl', function ($scope, localStorageService, $route) {
+  .controller('HeaderCtrl', function ($scope, localStorageService, $route, $window) {
+    $scope.location = $window.location.href;
     $scope.resetStorage = function(){
       localStorageService.clearAll();
       // reset current route to show changes taking place

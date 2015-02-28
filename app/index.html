@@ -34,15 +34,15 @@
           <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand" href="#/">angularwallet</a>
+        <a class="navbar-brand" href="#!/">angularwallet</a>
       </div>
 
       <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#!/">Home</a></li>
-          <li class="active"><a ng-click="resetStorage()">Reset</a></li>
-          <li class="active"><a>View source</a></li>
+          <li><a href="#!/">Home</a></li>
+          <li><a ng-click="resetStorage()" class="cursor-pointer">Reset</a></li>
+          <li><a class="cursor-pointer" target="_blank" href="view-source:{{location}}">View source</a></li>
         </ul>
       </div>
     </div>
@@ -92,6 +92,7 @@
 <script src="scripts/services/wallet.js"></script>
 <script src="scripts/directives/banknote.js"></script>
 <script src="scripts/controllers/header.js"></script>
+<script src="scripts/services/utils.js"></script>
 <!-- endbuild -->
 </body>
 </html>

@@ -25,7 +25,7 @@ angular.module('angularWalletApp')
       },
       {
         name:'BTC',
-        banknotes: [0.1, 1, 2, 5],
+        banknotes: [0.01, 0.1, 1, 2, 5],
         symbol: 'fa-btc'
       }
     ];

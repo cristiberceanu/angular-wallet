@@ -9,7 +9,7 @@ describe('Controller: HeaderCtrl', function () {
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function ($controller, $rootScope, $window) {
     scope = $rootScope.$new();
     HeaderCtrl = $controller('HeaderCtrl', {
       $scope: scope
