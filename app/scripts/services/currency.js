@@ -12,27 +12,35 @@ angular.module('angularWalletApp')
   .factory('Currency', function () {
 
 
-    var currenciesSpecs = {
-      USD: {
+    var currenciesSpecs = [
+      {
+        name:'USD',
         banknotes: [1, 5, 10, 50, 100],
         symbol: 'fa-usd'
       },
-      EUR: {
+      {
+        name:'EUR',
         banknotes: [1, 2, 5, 10, 50, 100, 200, 500],
         symbol: 'fa-eur'
       },
-      BTC: {
-        banknotes: [0.00001, 1, 2, 5],
+      {
+        name:'BTC',
+        banknotes: [0.1, 1, 2, 5],
         symbol: 'fa-btc'
       }
-    };
+    ];
 
     return {
       getCurrency: function (currency) {
-        return currenciesSpecs[currency] || null;
+        var result = null;
+        angular.forEach(currenciesSpecs, function(currentCurrency){
+          if(currentCurrency.name == currency)
+            result = currentCurrency;
+        });
+        return result;
       },
       getCurrenciesList: function(){
-        return Object.keys(currenciesSpecs);
+        return currenciesSpecs;
       }
     };
   });

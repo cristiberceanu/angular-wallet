@@ -12,7 +12,7 @@ angular.module('angularWalletApp')
       template: '<ng-form name="form" class="col-xs-12">'+
       '<div class="col-xs-2">'+
       '<span class="pull-right" style="font-size: 17px; padding-top:5px;">'+
-      '<b> {{currency}} {{banknote.name}}:</b>'+
+      '<b> {{banknote.name}} {{currency.name}}:</b>'+
       '</span>'+
       '</div>'+
       '<div class="input-group col-xs-4" style="padding-bottom:10px;">'+
@@ -27,7 +27,7 @@ angular.module('angularWalletApp')
       '<button class="btn btn-danger" type="button" ng-click="removeMoney()"><b>-</b></button>'+
       '</span>'+
       '</div>'+
-      '<span class="col-xs-offset-2 col-xs-4" class="error-message" ng-show="form.$error.zeroAmount">You don\'t have any {{banknote.name}} {{currency}} bills</span>'+
+      '<span class="col-xs-offset-2 col-xs-4" class="error-message" ng-show="form.$error.zeroAmount">You don\'t have any {{banknote.name}} <i class="fa {{currency.symbol}}"></i> bills</span>'+
       '</ng-form>',
       restrict: 'E',
       scope:{

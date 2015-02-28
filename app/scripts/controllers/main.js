@@ -8,41 +8,40 @@
  * Controller of the angularWalletApp
  */
 angular.module('angularWalletApp')
-  .controller('MainCtrl', function ($scope, Currency, Wallet) {
+  .controller('MainCtrl', function ($scope, Currency, Wallet, localStorageService) {
+    $scope.currencies = Currency.getCurrenciesList();
+    var currentCurrency = localStorageService.get('currentCurrency');
+    if(currentCurrency){
+      $scope.currentCurrency = Currency.getCurrency(currentCurrency.name);
+    } else {
+      $scope.currentCurrency = $scope.currencies[0];
+    }
+
 
     $scope.createWallet = function () {
-      $scope.wallet = Wallet.getWallet(Currency.getCurrency($scope.currentCurrency));
+      localStorageService.set('currentCurrency', $scope.currentCurrency);
+      $scope.wallet = Wallet.getWallet(Currency.getCurrency($scope.currentCurrency.name));
+      localStorageService.set('wallet', $scope.wallet);
     };
 
-    $scope.currencies = Currency.getCurrenciesList();
-    $scope.currentCurrency = $scope.currencies[0];
 
+    var walletStorageValue = localStorageService.get('wallet');
 
-    $scope.updateTotal = function(){
-      $scope.total = 0;
-      angular.forEach($scope.wallet, function(banknote){
-        var castTotal = parseInt(banknote.ammount);
-
-        if(isNaN(castTotal))
-          $scope.total += 0;
-        else
-          $scope.total += castTotal * parseInt(banknote.name);
-      });
-
-    };
+    // set wallet values from localStorage if possible
+    if(walletStorageValue != null){
+      $scope.wallet = walletStorageValue;
+    } else { // else create a new one
+      $scope.createWallet();
+    }
 
     $scope.addMoney = function(banknote){
-      $scope.total += banknote.name;
+      $scope.wallet.total += banknote.name;
     };
 
     $scope.removeMoney = function(banknote){
-      $scope.total -= banknote.name;
+      $scope.wallet.total -= banknote.name;
     };
 
-    $scope.createWallet();
-    $scope.updateTotal();
-
-
-
+    localStorageService.bind($scope, 'wallet');
 
   });

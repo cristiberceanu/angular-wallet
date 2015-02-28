@@ -1,17 +1,17 @@
 <div class="jumbotron">
-  <h4>Shut up and take my money -- Wallet app</h4>
+  <h4>Shut up and take my money -- wallet app</h4>
   <h4></h4>
-  <select class="form-control" name="currency" id="currency" ng-options="currency for currency in currencies" ng-model="currentCurrency" ng-change="createWallet()">
+  <select class="form-control" name="currency" id="currency" ng-options="currency as currency.name for currency in currencies" ng-model="currentCurrency" ng-change="createWallet()">
   </select>
 </div>
 
 <div class="row marketing">
-  <banknote  ng-repeat="banknote in wallet"
+  <banknote  ng-repeat="banknote in wallet.banknotes"
              currency="currentCurrency"
              banknote="banknote"
              add="addMoney(banknote)"
              remove="removeMoney(banknote)">
   </banknote>
   <div class="clearfix"></div>
-  <div class="col-xs-12" style="font-weight: bold;font-size: 17px">Total:{{total}} {{currentCurrency}}</div>
+  <div class="col-xs-12" style="font-weight: bold;font-size: 17px">Total:{{wallet.total}} <i class="fa {{currentCurrency.symbol}}"></i></div>
 </div>

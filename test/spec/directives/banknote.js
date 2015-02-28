@@ -33,7 +33,15 @@ describe('Directive: banknote', function () {
     element.find('.btn-danger').click();
     expect(innerScope.form.$invalid).toBeTruthy();
 
+  });
 
+  it('should decrease the banknotes ammount', function(){
+    innerScope = element.isolateScope();
+    innerScope.banknote.amount = 100;
+    var currentAmount = innerScope.banknote.amount;
+    // click remove button should make ngForm invalid
+    element.find('.btn-danger').click();
+    expect(currentAmount).not.toEqual(innerScope.banknote.amount);
 
   });
 });

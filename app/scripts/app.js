@@ -16,13 +16,19 @@ angular
     'LocalStorageModule'
   ]);
 
-angular.module('angularWalletApp').config(['$routeProvider', '$locationProvider',  function($routeProvider, $locationProvider){
-  $routeProvider.when('/', {
-    templateUrl:'views/main.html',
-    controller: 'MainCtrl'
-  });
+angular.module('angularWalletApp').config(['$routeProvider', '$locationProvider', 'localStorageServiceProvider',
+  function($routeProvider, $locationProvider, localStorageServiceProvider){
+    $routeProvider.when('/', {
+      templateUrl:'views/main.html',
+      controller: 'MainCtrl'
+    });
 
-  $routeProvider.otherwise('/404');
-  $locationProvider.html5Mode(false).hashPrefix("!");
+    $routeProvider.otherwise('/404');
+    $locationProvider.html5Mode(false).hashPrefix("!");
 
-}]);
+    //config for local storage
+    localStorageServiceProvider
+      .setPrefix('angularWalletApp')
+      .setStorageType('localStorage');
+
+  }]);
