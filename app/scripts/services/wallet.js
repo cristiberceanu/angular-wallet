@@ -13,9 +13,9 @@ angular.module('angularWalletApp')
   .factory('Wallet', function () {
     return {
       getWallet: function (currency) {
-        var wallet = {};
+        var wallet = [];
         angular.forEach(currency.banknotes, function(banknote){
-          wallet[banknote] = 0;
+          wallet.push({name: banknote, ammount: 0});
         });
         return wallet;
       }

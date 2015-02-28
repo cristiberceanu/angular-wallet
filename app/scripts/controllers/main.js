@@ -9,7 +9,8 @@
  */
 angular.module('angularWalletApp')
   .controller('MainCtrl', function ($scope, Currency, Wallet) {
-    $scope.createWallet = function(){
+
+    $scope.createWallet = function () {
       $scope.wallet = Wallet.getWallet(Currency.getCurrency($scope.currentCurrency));
       console.log($scope.wallet);
     };
@@ -17,6 +18,24 @@ angular.module('angularWalletApp')
     $scope.currencies = Currency.getCurrenciesList();
     $scope.currentCurrency = $scope.currencies[0];
 
+
+    $scope.updateTotal = function(){
+      $scope.total = 0;
+      angular.forEach($scope.wallet, function(banknote){
+        var castTotal = parseInt(banknote.ammount);
+
+        if(isNaN(castTotal))
+          $scope.total += 0;
+        else
+          $scope.total += castTotal * parseInt(banknote.name);
+      });
+
+    };
+
     $scope.createWallet();
+    $scope.updateTotal();
+
+
+
 
   });

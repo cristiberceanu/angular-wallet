@@ -1,10 +1,29 @@
 <div class="jumbotron">
-  <h4>Shut up and take my money!</h4>
-  <h4>Wallet app</h4>
-  <select name="currency" id="currency" ng-options="currency for currency in currencies" ng-model="currentCurrency" ng-change="createWallet()">
+  <h4>Shut up and take my money -- Wallet app</h4>
+  <h4></h4>
+  <select class="form-control" name="currency" id="currency" ng-options="currency for currency in currencies" ng-model="currentCurrency" ng-change="createWallet()">
   </select>
 </div>
 
 <div class="row marketing">
+  <div ng-repeat="banknote in wallet">
+    <div class="col-xs-2">
+      <span class="pull-right" style="font-size: 17px; padding-top:5px;">
+      <b>{{banknote.name}} {{currentCurrency}}:</b>
+        </span>
+    </div>
+    <div class="input-group col-xs-4" style="padding-bottom:10px;">
+          <span class="input-group-btn">
+            <button class="btn btn-success" type="button"><b>+</b></button>
+          </span>
+      <span type="text" class="form-control" ng-model="banknote.ammount" ng-change="updateTotal()">
+        </span>
+      <span class="input-group-btn">
+            <button class="btn btn-danger" type="button"><b>-</b></button>
+          </span>
+    </div>
 
+  </div>
+  <div class="clearfix"></div>
+  <div class="col-xs-12" style="font-weight: bold;font-size: 17px">Total:{{total}} {{currentCurrency}}</div>
 </div>
