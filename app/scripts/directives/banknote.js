@@ -17,17 +17,17 @@ angular.module('angularWalletApp')
       '</div>'+
       '<div class="input-group col-xs-4" style="padding-bottom:10px;">'+
       '<span class="input-group-btn">'+
-      '<button class="btn btn-success" type="button" ng-click="addMoney()"><b>+</b></button>'+
+      '<button class="btn btn-success add-banknote" type="button" ng-click="addMoney()"><b>+</b></button>'+
       '</span>'+
       '<span type="text" class="form-control">'+
       '<input type="hidden" name="amount" ng-model="banknote.amount">'+
       '{{banknote.amount}}'+
       '</span>'+
       '<span class="input-group-btn">'+
-      '<button class="btn btn-danger" type="button" ng-click="removeMoney()"><b>-</b></button>'+
+      '<button class="btn btn-danger remove-banknote" type="button" ng-click="removeMoney()"><b>-</b></button>'+
       '</span>'+
       '</div>'+
-      '<span class="col-xs-offset-2 col-xs-4" class="error-message" ng-show="form.$error.zeroAmount">You\'re out of <i class="fa {{currency.symbol}}"></i>{{banknote.name}} bills</span>'+
+      '<span class="col-xs-offset-2 col-xs-4 error-message" ng-show="form.$error.zeroAmount">You\'re out of <i class="fa {{currency.symbol}}"></i>{{banknote.name}} bills</span>'+
       '</ng-form>',
       restrict: 'E',
       scope:{

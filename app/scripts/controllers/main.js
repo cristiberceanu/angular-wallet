@@ -33,7 +33,6 @@ angular.module('angularWalletApp')
       localStorageService.set('currentCurrency', $scope.currentCurrency);
       localStorageService.set('transactions', []);
       $scope.transactions = [];
-      console.log(localStorageService.get('transactions'));
       $scope.wallet = Wallet.getWallet(Currency.getCurrency($scope.currentCurrency.name));
       localStorageService.set('wallet', $scope.wallet);
     };
