@@ -19,7 +19,7 @@ angular.module('angularWalletApp')
       '<span class="input-group-btn">'+
       '<button class="btn btn-success add-banknote" type="button" ng-click="addMoney()"><b>+</b></button>'+
       '</span>'+
-      '<span type="text" class="form-control">'+
+      '<span type="text" class="form-control banknote-amount">'+
       '<input type="hidden" name="amount" ng-model="banknote.amount">'+
       '{{banknote.amount}}'+
       '</span>'+
