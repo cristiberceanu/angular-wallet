@@ -36,6 +36,10 @@ describe('Controller: MainCtrl', function () {
     expect(scope.wallet.total).toEqual(0);
   });
 
+  it('should have a transactions attribute', function(){
+    expect(scope.transactions).toBeDefined();
+  });
+
   it('should get the wallet from localStorage', function(){
     localStorageService.set('wallet', globals.mockWallet);
     expect(scope.wallet.banknotes[0].ammount).toEqual(globals.mockWallet.banknotes[0].ammount);
@@ -56,14 +60,20 @@ describe('Controller: MainCtrl', function () {
 
   it('should add money to wallet total', function(){
     var currentTotal = scope.wallet.total;
+    var transactionsLength = scope.transactions.length;
+
     scope.addMoney(globals.mockBanknote);
     expect(scope.wallet.total).toEqual(currentTotal+globals.mockBanknote.name);
+    expect(scope.transactions.length).toEqual(transactionsLength+1);
   });
 
   it('should remove money from wallet total', function(){
     var currentTotal = scope.wallet.total;
+    var transactionsLength = scope.transactions.length;
+
     scope.removeMoney(globals.mockBanknote);
     expect(scope.wallet.total).toEqual(currentTotal-globals.mockBanknote.name);
+    expect(scope.transactions.length).toEqual(transactionsLength+1);
   });
 
 });

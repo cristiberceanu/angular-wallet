@@ -31,7 +31,6 @@ module.exports = function(config) {
       // endbower
       'test/globals.js',
       'app/scripts/**/*.js',
-      'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],
 

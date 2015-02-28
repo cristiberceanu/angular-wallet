@@ -22,7 +22,7 @@
 <![endif]-->
 
 <!-- Add your site or application content here -->
-<div class="header">
+<div class="header" ng-controller="HeaderCtrl">
   <div class="navbar navbar-default" role="navigation">
     <div class="container">
       <div class="navbar-header">
@@ -41,7 +41,7 @@
 
         <ul class="nav navbar-nav">
           <li class="active"><a href="#!/">Home</a></li>
-          <li class="active"><a ng-click="resetwallet()">Reset</a></li>
+          <li class="active"><a ng-click="resetStorage()">Reset</a></li>
           <li class="active"><a>View source</a></li>
         </ul>
       </div>
@@ -91,6 +91,7 @@
 <script src="scripts/services/transaction.js"></script>
 <script src="scripts/services/wallet.js"></script>
 <script src="scripts/directives/banknote.js"></script>
+<script src="scripts/controllers/header.js"></script>
 <!-- endbuild -->
 </body>
 </html>

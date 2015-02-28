@@ -27,7 +27,7 @@ angular.module('angularWalletApp')
       '<button class="btn btn-danger" type="button" ng-click="removeMoney()"><b>-</b></button>'+
       '</span>'+
       '</div>'+
-      '<span class="col-xs-offset-2 col-xs-4" class="error-message" ng-show="form.$error.zeroAmount">You don\'t have any {{banknote.name}} <i class="fa {{currency.symbol}}"></i> bills</span>'+
+      '<span class="col-xs-offset-2 col-xs-4" class="error-message" ng-show="form.$error.zeroAmount">You\'re out of <i class="fa {{currency.symbol}}"></i>{{banknote.name}} bills</span>'+
       '</ng-form>',
       restrict: 'E',
       scope:{

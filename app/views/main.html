@@ -15,3 +15,12 @@
   <div class="clearfix"></div>
   <div class="col-xs-12" style="font-weight: bold;font-size: 17px">Total:{{wallet.total}} <i class="fa {{currentCurrency.symbol}}"></i></div>
 </div>
+
+<div class="row marketing">
+  <div ng-repeat="transaction in transactions"
+       ng-class="{'alert alert-success':transaction.type == 'add', 'alert alert-danger':transaction.type == 'remove'}"
+
+    >
+    Ammount: <i class="fa {{currentCurrency.symbol}}"></i>{{transaction.value}}
+  </div>
+</div>
