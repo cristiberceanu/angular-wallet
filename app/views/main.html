@@ -1,5 +1,5 @@
 <div class="jumbotron">
-  <h4>Shut up and take my money -- wallet app</h4>
+  <h4>Shut up and take my <i class="fa {{currentCurrency.symbol}}">({{currentCurrency.name}})</i> -- wallet app</h4>
   <h4></h4>
   <select class="form-control" name="currency" id="currency" ng-options="currency as currency.name for currency in currencies" ng-model="currentCurrency" ng-change="createWallet()">
   </select>
