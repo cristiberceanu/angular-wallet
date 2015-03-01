@@ -7,7 +7,11 @@
  * # wallet
  * This factory receives a Currency as a parameter and returns the wallet for that currency
  * For example, for Currency EUR:{banknotes:[1,2,5]} it will return
- * wallet: {1:0, 2:0, 5:0}(all values are set to 0 in the beginning)
+ * wallet: {
+ * banknotes:[{name:1, amount: 0}, {name: 5, amount:0}],
+ * total: 0,
+ * currency: [Currency Object]
+ * }
  */
 angular.module('angularWalletApp')
   .factory('Wallet', function () {

@@ -5,10 +5,10 @@
  * @name angularWalletApp.Utils
  * @description
  * # Utils
- * Factory in the angularWalletApp.
+ * Hold all the extra functions you need along the way
  */
 angular.module('angularWalletApp')
-  .factory('Utils', function ($filter) {
+  .factory('Utils', function () {
     return {
       isNumeric: function (n){
         return !isNaN(parseFloat(n)) && isFinite(n);

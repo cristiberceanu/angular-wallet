@@ -5,7 +5,7 @@
  * @name angularWalletApp.controller:HeaderCtrl
  * @description
  * # HeaderCtrl
- * Controller of the angularWalletApp
+ * Controller created for the top menu of the index.html page
  */
 angular.module('angularWalletApp')
   .controller('HeaderCtrl', function ($scope, localStorageService, $route, $window) {

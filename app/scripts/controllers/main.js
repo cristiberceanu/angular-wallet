@@ -5,7 +5,7 @@
  * @name angularWalletApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the angularWalletApp
+ * MainCtrl holds the business logic for the wallet application
  */
 angular.module('angularWalletApp')
   .controller('MainCtrl', function ($scope, Currency, Wallet, localStorageService, Utils) {
@@ -53,7 +53,7 @@ angular.module('angularWalletApp')
         banknote.name = 0;
       }
       $scope.wallet.total += banknote.name;
-      $scope.wallet.total = Math.round($scope.wallet.total * 1000) / 1000;
+      $scope.wallet.total = Math.round($scope.wallet.total * 1000) / 1000; // fix javascript's floating point
       $scope.transactions.unshift({type:'add', value: banknote.name, date: new Date()});
     };
 
@@ -63,9 +63,7 @@ angular.module('angularWalletApp')
       }
 
       $scope.wallet.total -= banknote.name;
-
       $scope.wallet.total = Math.round($scope.wallet.total * 1000) / 1000;
-
       $scope.transactions.unshift({type:'remove', value: banknote.name, date: new Date()})
     };
 

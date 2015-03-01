@@ -5,8 +5,9 @@
  * @name angularWalletApp.Transaction
  * @description
  * # Transaction
- * Transaction handles adding/removing sums of money from wallets
- *
+ * Future feature: Support a wallet with multiple currencies
+ * This means having currency-independent add/remove functions
+ * Service will try to remove currency and throw error in case it's not possible
  */
 angular.module('angularWalletApp')
   .factory('Transaction', function () {
